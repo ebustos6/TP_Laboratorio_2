@@ -8,6 +8,13 @@ namespace TP1
 {
     public static class Calculadora
     {
+        /// <summary>
+        /// realiza operaciones aritmeticas.
+        /// </summary>
+        /// <param name="num1"></param>
+        /// <param name="num2"></param>
+        /// <param name="operador"></param>
+        /// <returns></returns>
         public static double Operar(Numero num1, Numero num2, string operador)
         {
             char op;
@@ -27,19 +34,17 @@ namespace TP1
                 case "*":
                     return num1 * num2;
                 case "/":
-                    if (num2 == 0)
-                    {
-                        return double.MinValue;
-                    }
-                    else
-                    {
-                        return num1 / num2;
-                    }     
+                    return num1 / num2;    
                 default:
                     return num1 + num2;
             }
         }
 
+        /// <summary>
+        /// valida los operadores recibidos para la operacion aritmetica.
+        /// </summary>
+        /// <param name="operador"></param>
+        /// <returns></returns>
         private static string ValidarOperador(char operador)
         {
             switch (operador)
