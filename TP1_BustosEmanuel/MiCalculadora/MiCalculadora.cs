@@ -29,6 +29,9 @@ namespace TP1
             this.cmbOperador.Text = string.Empty;
             this.txtNumero2.Clear();
             this.lblResultado.Text = string.Empty;
+            this.btnOperar.Enabled = true;
+            this.btnConvertirABinario.Enabled = false;
+            this.btnConvertirADecimal.Enabled = false;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -39,6 +42,8 @@ namespace TP1
         private void btnOperar_Click(object sender, EventArgs e)
         {
             this.lblResultado.Text = Operar(this.txtNumero1.Text, this.txtNumero2.Text, this.cmbOperador.Text).ToString();
+            this.btnConvertirABinario.Enabled = true;
+            this.btnConvertirADecimal.Enabled = false;
         }
 
         private static double Operar(string numero1, string numero2, string operador)
@@ -50,21 +55,36 @@ namespace TP1
 
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
+            this.btnConvertirADecimal.Enabled = true;
             if (!string.IsNullOrWhiteSpace(this.lblResultado.Text))
             {
-                double.TryParse(this.lblResultado.Text, out double aux);
                 Numero resultado = new Numero();
-                this.lblResultado.Text = resultado.DecimalBinario(aux);
+                this.lblResultado.Text = resultado.DecimalBinario(this.lblResultado.Text);
+                this.btnConvertirADecimal.Enabled = true;
+                this.btnConvertirABinario.Enabled = false;
+                this.btnOperar.Enabled = false;
             }
+            
         }
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
+            
             if (!string.IsNullOrWhiteSpace(this.lblResultado.Text))
             {
                 Numero resultado = new Numero();
                 this.lblResultado.Text = resultado.BinarioDecimal(this.lblResultado.Text);
+                this.btnConvertirABinario.Enabled = true;
+                this.btnConvertirADecimal.Enabled = false;
+                this.btnOperar.Enabled = true;
             }
+            
+        }
+
+        private void MiCalculadora_Load(object sender, EventArgs e)
+        {
+            this.btnConvertirABinario.Enabled = false;
+            this.btnConvertirADecimal.Enabled = false;
         }
     }
 }

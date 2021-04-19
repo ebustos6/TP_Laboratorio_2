@@ -70,14 +70,13 @@ namespace TP1
                     pos--;
                     if (int.TryParse(binario.Substring(i, 1), out int num))
                     {
-                        num *= (int)Math.Pow(2, pos);
+                        num *= (int)Math.Pow(2, pos - 1);
                         acum += num;
                     }
 
                 }
 
                 binario = acum.ToString();
-                acum = 0;
 
             }
             else
@@ -114,10 +113,6 @@ namespace TP1
                 {
                     bin = "0";
                 }
-                else
-                {
-                    bin = "Valor inválido.";
-                }
 
             }
 
@@ -132,7 +127,7 @@ namespace TP1
             }
             else
             {
-                return "Valor inválido";
+                return "Valor inválido.";
             }
         }
 

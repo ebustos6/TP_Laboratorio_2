@@ -10,7 +10,16 @@ namespace TP1
     {
         public static double Operar(Numero num1, Numero num2, string operador)
         {
-            char op = operador[0];
+            char op;
+            if (operador == string.Empty)
+            {
+                op = ' ';
+            }
+            else
+            {
+                op = operador[0];
+            }
+            
             switch (ValidarOperador(op))
             {
                 case "-":

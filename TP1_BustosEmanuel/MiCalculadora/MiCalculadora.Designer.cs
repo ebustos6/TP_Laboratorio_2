@@ -136,7 +136,6 @@ namespace TP1
             this.lblResultado.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblResultado.Size = new System.Drawing.Size(581, 64);
             this.lblResultado.TabIndex = 8;
-            this.lblResultado.Text = "0";
             this.lblResultado.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.lblResultado.UseCompatibleTextRendering = true;
             // 
@@ -162,6 +161,7 @@ namespace TP1
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora Emanuel Bustos 2°D";
+            this.Load += new System.EventHandler(this.MiCalculadora_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
