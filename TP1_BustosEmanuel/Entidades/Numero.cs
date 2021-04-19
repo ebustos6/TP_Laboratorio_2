@@ -71,7 +71,7 @@ namespace TP1
         /// <returns></returns>
         private bool EsBinario(string Binario)
         {
-            for (int i = 0; i < Binario.Length; i++)
+            for (int i = 0; i < Binario.Length - 1; i++)
             {
                 if (Binario.Substring(i,1) != "1" && Binario.Substring(i, 1) != "0")
                 {
@@ -125,11 +125,11 @@ namespace TP1
         {
             string bin = " ";
 
-            if ((int)numero > 0)
+            if (Math.Abs((int)numero) > 0)
             {
-                while ((int)numero > 0)
+                while (Math.Abs((int)numero) > 0)
                 {
-                    if ((int)numero % 2 == 0)
+                    if (Math.Abs((int)numero) % 2 == 0)
                     {
                         bin = "0" + bin;
                     }
@@ -154,7 +154,7 @@ namespace TP1
         }
 
         /// <summary>
-        /// recibe un string y si se puede pasar a double se lo envia a Decimal Binario(double) para ser convertido.
+        /// recibe un string y si se puede pasar a double se lo envia a DecimalBinario(double) para ser convertido.
         /// </summary>
         /// <param name="numero"></param>
         /// <returns></returns>
