@@ -10,8 +10,11 @@ namespace Entidades
 {
     public class Sedan : Vehiculo
     {
-        public enum ETipo { CuatroPuertas, CincoPuertas }
         private ETipo tipo;
+        public enum ETipo
+        { 
+            CuatroPuertas, CincoPuertas 
+        }
 
         /// <summary>
         /// Por defecto, TIPO será CuatroPuertas
@@ -34,7 +37,7 @@ namespace Entidades
         /// <summary>
         /// Sedan son 'Mediano'
         /// </summary>
-        public override ETamanio Tamanio
+        protected override ETamanio Tamanio
         {
             get
             {
@@ -46,9 +49,9 @@ namespace Entidades
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("SEDAN");
+            sb.AppendLine("SEDAN\r\n");
             sb.AppendLine(base.Mostrar());
-            sb.AppendLine($"TAMAÑO : {this.Tamanio}\r\n");
+            sb.AppendLine($"TAMAÑO : {this.Tamanio}");
             sb.AppendLine("TIPO : " + this.tipo);
             sb.AppendLine("");
             sb.AppendLine("---------------------");

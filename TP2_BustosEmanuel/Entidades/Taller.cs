@@ -62,21 +62,21 @@ namespace Entidades
                     case ETipo.SUV:
                         if(v is Suv)
                         {
-                            sb.AppendLine(((Suv)v).Mostrar());
+                            sb.AppendLine(v.Mostrar());
                         }
                         break;
 
                     case ETipo.Ciclomotor:
                         if(v is Ciclomotor)
                         {
-                            sb.AppendLine(((Ciclomotor)v).Mostrar());
+                            sb.AppendLine(v.Mostrar());
                         }
                         break;
 
                     case ETipo.Sedan:
                         if(v is Sedan)
                         {
-                            sb.AppendLine(((Sedan)v).Mostrar());
+                            sb.AppendLine(v.Mostrar());
                         }
                         break;
 
@@ -99,7 +99,7 @@ namespace Entidades
         /// <returns></returns>
         public static Taller operator +(Taller taller, Vehiculo vehiculo)
         {
-            if(taller.vehiculos.Count < taller.espacioDisponible)
+            if(!(taller is null) && !(vehiculo is null) && taller.vehiculos.Count < taller.espacioDisponible)
             {
                 foreach (Vehiculo v in taller.vehiculos)
                 {
@@ -121,7 +121,7 @@ namespace Entidades
         /// <returns></returns>
         public static Taller operator -(Taller taller, Vehiculo vehiculo)
         {
-            if(taller.vehiculos.Count > 0)
+            if(!(taller is null) && !(vehiculo is null) && taller.vehiculos.Count > 0)
             {
                 foreach (Vehiculo v in taller.vehiculos)
                 {

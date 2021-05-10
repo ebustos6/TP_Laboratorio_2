@@ -33,7 +33,7 @@ namespace Entidades
         /// <summary>
         /// ReadOnly: Retornará el tamaño
         /// </summary>
-        public abstract ETamanio Tamanio { get; }
+        protected abstract ETamanio Tamanio { get; }
 
         /// <summary>
         /// Publica todos los datos del Vehiculo.
@@ -48,9 +48,9 @@ namespace Entidades
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"CHASIS: {p.chasis}\r\n");
-            sb.AppendLine($"MARCA : {p.marca}\r\n");
-            sb.AppendLine($"COLOR : {p.color}\r\n");
+            sb.AppendLine($"CHASIS: {p.chasis}");
+            sb.AppendLine($"MARCA : {p.marca}");
+            sb.AppendLine($"COLOR : {p.color}");
             sb.AppendLine("---------------------");
 
             return sb.ToString();
@@ -64,7 +64,12 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator ==(Vehiculo v1, Vehiculo v2)
         {
-            return (v1.chasis == v2.chasis);
+            if (!(v1 is null) && !(v2 is null))
+            {
+                return (v1.chasis == v2.chasis);
+            }
+            return false;
+            
         }
         /// <summary>
         /// Dos vehiculos son distintos si su chasis es distinto
